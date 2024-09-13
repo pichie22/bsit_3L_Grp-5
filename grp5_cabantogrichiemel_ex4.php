@@ -18,9 +18,6 @@
 
         <?php echo $_POST["name"]; ?> :
         <?php echo $_POST["comment"]; ?><br>
-
-        <?php echo $_GET["name"]; ?> :
-        <?php echo $_GET["comment"]; ?><br>
     </div>
     </body>
 </html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="stylemain.css">
+  <title>BLQ</title>
+</head>
+
+
+  <div class="topnav" id="myTopnav">
+  <a href="main.html" class="active"><img src="logo1.jpg"></a>
+  <a href="javascript:alert('Report Is not been Added so chill and check our website while were working on this');">Report</a>
+  <a href="products.html">BLQ Products</a>
+    <a href="blueprints.html">BLQ Blueprints</a>
+    <div class="dropdown">
+    <button class="dropbtn">Social Media Links
+      <i class="fa fa-caret-down"></i>
+    </button>
+   <div class="dropdown-content">
+      <a href="https://www.facebook.com/waynearthur.redoblado.14">Facebook</a>
+      <a href="https://www.facebook.com/waynearthur.redoblado.14">Instagram</a>
+      <a href="https://www.facebook.com/waynearthur.redoblado.14">Github</a>
+    </div>
+  </div> 
+  <a href="http://localhost/About/Main.php">About</a>
+  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+   
+   <div class="title">
+    <h1>BLQ©</h1>
+  </div>
+  <br>
+  <br>
+   <div class="form">
+    <div class="conten">
+      <p class="top">Enter Your Details</p>
+      <p class="fade">* required field</p>
+      <br>
+      <form id="userForm">
+        <label for="Firstname">First Name</label><br>
+        <input type="text" id="Firstname" name="Firstname" required><br><br>
+        <label for="Lastname">Last Name</label><br>
+        <input type="text" id="Lastname" name="Lastname" required><br><br>
+        <label for="email">Email Address</label><br>
+        <input type="email" id="email" name="email" required>
+        <p style="color:grey;font-size:10px;">Notice : please input the correct email because the price and the transanction will be sent in to the Account</p>
+        <label for="Region">Country/Region </label>
+        <select id="Region" name="Region">
+          <option>Philippines</option>
+          <option>China</option>
+          <option>United States</option>
+          <option>Thailand</option>
+          <option>Malaysia</option>
+          <option>None</option>
+        </select><br><br>
+        <label for="Gender">Gender</label>
+        <select id="Gender" name="Gender">
+          <option>Male</option>
+          <option>Female</option>
+          <option>Prefered Not to say</option>
+        </select><br><br>
+        <label for="PhoneNumber">Phone Number</label>
+        <input type="tel" id="PhoneNumber" name="PhoneNumber" placeholder="+63" required><br><br>
+        <input type="checkbox" id="consent">
+        <label for="consent" class="fad">Yes, I consent to receiving marketing emails from BLQ.</label><br><br>
+        <button type="submit" onclick="myReserve">Book Now!</button> 
+       </form>  
+         
+    </div>   
+  </div>
+<br>
+<br>
+<br>
+<div class="textcont">
+    <h2><b>Renovate without the guesswork</b></h2>
+    <h2 style="font-weight:lighter;">REALIZE AND IMAGINE DREAM HOME</h2>
+    <br>
+    <br>
+    <p>Let us know todays possibilities to realise your dream home.</p>
+  </div>
+<br>
+<br>
+  <div class="details">
+    <img src="logo1.jpg" height="50" width="60">
+    <p style="color:grey;font-weight:lighter;">Wayne Arthur Redoblado</p>
+    <p>Address</p>
+    <p style="color:grey;font-size:12px">Blk 8 lot 14 dahlia st tscruz subd almanza dos las piñas city</p>
+    <p>Cellphone</p>
+    <p style="color:grey;font-size:12px">+63 09763729171</p>
+    <br>
+    <hr style="background-color:grey;">
+    <p style="font-size:9px;color:grey;">Cookies Policy</p>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+        $('#userForm').on('submit', function(e) {
+            e.preventDefault(); // Prevent the default form submission
+
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost/activity2/Main/info.php',
+                data: $(this).serialize(),
+                success: function(response) {
+                    $('#response').html(response.message);
+                    $('#userForm')[0].reset(); // Reset the form
+                },
+                error: function(xhr, status, error) {
+                    $('#response').html('Error: ' + error);
+                }
+            });
+        });
+    });
+</script>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+function myReserve() {
+    alert("Thank You A confirmation Link has been sent to your email Address please Check and click the link ");
+    alert("You are Succesfully Book to Bql Assistant");
+    location.replace("main.html");
+  }
+</script>
+
+</body>
+</html>
